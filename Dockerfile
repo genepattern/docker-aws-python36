@@ -10,6 +10,8 @@ RUN chmod ugo+x /usr/local/bin/runS3OnBatch.sh && \
     chmod ugo+x /usr/local/bin/runLocal.sh
 
 RUN mkdir /build
+RUN echo "just testing"
+
 ADD requirements.txt /build/requirements.txt
 RUN pip install -r /build/requirements.txt
 RUN pip install awscli
