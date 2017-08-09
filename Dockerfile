@@ -5,7 +5,7 @@ MAINTAINER Ted Liefeld <jliefeld@cloud.ucsd.edu>
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 COPY common/container_scripts/runS3OnBatch.sh /usr/local/bin/runS3OnBatch.sh
-COPY runLocal.sh /usr/local/bin/runLocal.sh
+COPY common/container_scripts/runLocal.sh /usr/local/bin/runLocal.sh
 RUN chmod ugo+x /usr/local/bin/runS3OnBatch.sh && \ 
     chmod ugo+x /usr/local/bin/runLocal.sh
 
