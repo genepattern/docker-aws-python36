@@ -1,8 +1,11 @@
 #!/bin/sh
 
 S3_ROOT=s3://moduleiotest
-S3_ROOT=s3://moduleiotest
 JOB_QUEUE=TedTest
+
+
+echo $TEST_ROOT
+echo "WD+" $WORKING_DIR
 
 cd $TEST_ROOT
 
