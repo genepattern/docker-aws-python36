@@ -11,8 +11,22 @@ RUN chmod ugo+x /usr/local/bin/runS3OnBatch.sh && \
 
 RUN mkdir /build
 
+RUN mkdir /conda && \
+    cd /conda && \
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+    bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda
+    
+ENV PATH="/opt/conda/bin:${PATH}"
+
 ADD requirements.txt /build/requirements.txt
 RUN pip install -r /build/requirements.txt
-RUN pip install awscli
+RUN conda install R==3.3.2
+RUN conda install rpy2
+RUN pip install sklearn && \
+    pip install awscli && \
+    pip install cuzcatlan ccal 
+
+
+
 
 CMD [ "/usr/local/bin/runS3OnBatch.sh"]

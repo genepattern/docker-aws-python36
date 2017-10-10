@@ -7,6 +7,7 @@ print("The arguments are: " , str(sys.argv))
 
 print('showing contents of file: ', sys.argv[1])
 
+Warning("WHERE AM I")
 
 with open(sys.argv[1], "r") as f:
     for line in f:
