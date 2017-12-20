@@ -32,5 +32,4 @@ six==1.10.0
 statsmodels==0.8.0
 traitlets==4.3.2
 urllib3==1.22
-
-
+scikit-learn==0.19.1
