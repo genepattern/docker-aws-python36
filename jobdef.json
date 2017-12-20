@@ -9,7 +9,7 @@
             "Ref::exe1"
         ],
         "jobRoleArn": "arn:aws:iam::718039241689:role/BATCH-EFS-ROLE",
-        "image": "genepattern/docker-aws-python36",
+        "image": "genepattern/docker-python36",
         "memory": 2000,
         "mountPoints": [],
         "ulimits": [],

@@ -8,6 +8,7 @@
 : ${CONTAINER_OVERRIDE_MEMORY=2400}
 : ${S3_ROOT=s3://moduleiotest}
 : ${JOB_QUEUE=TedTest}
+: ${PROFILE=genepattern}
 
 cd $TEST_ROOT
 
@@ -31,10 +32,10 @@ REMOTE_COMMAND=$EXEC_SHELL
 #
 # Copy the input files to S3 using the same path
 #
-aws s3 sync $INPUT_FILE_DIRECTORIES $S3_ROOT$INPUT_FILE_DIRECTORIES --profile genepattern
-aws s3 sync $TASKLIB $S3_ROOT$TASKLIB --profile genepattern
-aws s3 sync $WORKING_DIR $S3_ROOT$WORKING_DIR --profile genepattern 
-aws s3 sync $GP_METADATA_DIR $S3_ROOT$GP_METADATA_DIR --profile genepattern 
+aws s3 sync $INPUT_FILE_DIRECTORIES $S3_ROOT$INPUT_FILE_DIRECTORIES --profile $PROFILE
+aws s3 sync $TASKLIB $S3_ROOT$TASKLIB --profile $PROFILE
+aws s3 sync $WORKING_DIR $S3_ROOT$WORKING_DIR --profile  $PROFILE
+aws s3 sync $GP_METADATA_DIR $S3_ROOT$GP_METADATA_DIR --profile $PROFILE 
 
 ######### end new part for script #################################################
 
@@ -47,6 +48,6 @@ aws batch submit-job \
       --container-overrides "memory=$CONTAINER_OVERRIDE_MEMORY,environment=[{name=GP_METADATA_DIR,value=$GP_METADATA_DIR},{name=STDOUT_FILENAME,value=$STDOUT_FILENAME},{name=STDERR_FILENAME,value=$STDERR_FILENAME},{name=EXITCODE_FILENAME,value=$EXITCODE_FILENAME}]"  \
       --job-definition $JOB_DEFINITION_NAME \
       --parameters taskLib=$TASKLIB,inputFileDirectory=$INPUT_FILE_DIRECTORIES,s3_root=$S3_ROOT,working_dir=$WORKING_DIR,exe1="$REMOTE_COMMAND"  \
-      --profile genepattern
+      --profile $PROFILE
 
 

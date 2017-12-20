@@ -5,7 +5,7 @@ TASKLIB=$TEST_ROOT/src
 WORKING_DIR=$TEST_ROOT/job_1
 INPUT_FILE_DIRECTORIES=$TEST_ROOT/data
 COMMAND_LINE="python $TASKLIB/hello.py $INPUT_FILE_DIRECTORIES/hello.txt"
-
+JOB_QUEUE=LowMemBatchCloudformationJobqueue
 
 # local only variables
 #
