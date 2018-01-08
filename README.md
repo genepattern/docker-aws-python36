@@ -15,4 +15,4 @@ aws batch register-job-definition --cli-input-json file://jobdef.json  --profile
 
    git subtree pull --prefix tests/diffex/diffexSrc https://github.com/genepattern/DiffEx.git master --squash
 
-
+# copyright 2017-2018 Regents of the University of California and the Broad Institute. All rights reserved.
