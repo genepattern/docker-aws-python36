@@ -4,7 +4,7 @@ FROM python:3.6
 MAINTAINER Ted Liefeld <jliefeld@cloud.ucsd.edu>
 
 # ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 # 2018-04-06:20:14:05 EJ trying something out, I may reverse this change
-ENV LANG=C LC_ALL=C.UTF-8
+ENV LANG=C LC_ALL=C
 
 COPY common/container_scripts/runS3OnBatch.sh common/container_scripts/runLocal.sh /usr/local/bin/ 
 
